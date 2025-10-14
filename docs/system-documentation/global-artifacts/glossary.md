@@ -12,5 +12,5 @@
 | **Nurse**              | **Enfermeiro**           | Healthcare professional responsible for administering vaccines                                         |
 | **DGS Administrator**  | **Administrador da DGS** | System administrator responsible for managing core data and users                                      |
 | **Vaccine Type**       | **Tipo de Vacina**       | Category of vaccine according to disease it prevents                                                   |
-| **Vaccine Brand**      | **Marca de Vacina**      | Commercial name of a vaccine manufactured by a specific company                                        |
+| **Vaccine Brand a**    | **Marca de Vacina**      | Commercial name of a vaccine manufactured by a specific company                                        |
 
