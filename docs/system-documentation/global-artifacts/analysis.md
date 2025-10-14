@@ -126,7 +126,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Documents mentioned/used to perform some work**
 
-* VaccinationCertificate
+* VaccinationCertificate    
 
 ---
 
