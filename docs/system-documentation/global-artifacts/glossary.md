@@ -4,13 +4,14 @@
 
 | **_TEA_** (EN)         | **_TEA_** (PT)           | **_Description_** (EN)                                                                                 |                                       
 |:-----------------------|:-------------------------|:-------------------------------------------------------------------------------------------------------|
-| **Project Manager**    | **Gestor de Projeto**    | Professional responsible for planning, organizing, coordinating and monitoring all stages of a project |
-| **Vaccination Center** | **Centro de Vacinação**  | Facility where vaccines are administered to users                                                      |
-| **SNS User**           | **Utilizador do SNS**    | Citizen registered in the National Health Service requiring vaccination                                |
 | **Appointment**        | **Agendamento**          | Scheduled date and time for a user to receive a vaccine                                                |
-| **SNS User**           | **Utilizador do SNS**    | Citizen registered in the National Health Service requiring vaccination                                |
-| **Nurse**              | **Enfermeiro**           | Healthcare professional responsible for administering vaccines                                         |
 | **DGS Administrator**  | **Administrador da DGS** | System administrator responsible for managing core data and users                                      |
+| **Nurse**              | **Enfermeiro**           | Healthcare professional responsible for administering vaccines                                         |
+| **Project Manager**    | **Gestor de Projeto**    | Professional responsible for planning, organizing, coordinating and monitoring all stages of a project |
+| **Receptionist**       | **Rececionista**         | Person who manages arrivals and appointment validation at vaccination centers                          |
+| **SNS User**           | **Utilizador do SNS**    | Citizen registered in the National Health Service requiring vaccination                                |
+| **Vaccination Center** | **Centro de Vacinação**  | Facility where vaccines are administered to users                                                      |
+| **Vaccine Brand**      | **Marca de Vacina**      | Commercial name of a vaccine manufactured by a specific company                                        |
 | **Vaccine Type**       | **Tipo de Vacina**       | Category of vaccine according to disease it prevents                                                   |
-| **Vaccine Brand a**    | **Marca de Vacina**      | Commercial name of a vaccine manufactured by a specific company                                        |
+
 
