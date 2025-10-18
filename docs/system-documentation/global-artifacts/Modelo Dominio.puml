@@ -1,1 +1,45 @@
 @startuml
+
+
+class Center {
+-name
+-postal address
+-phone number
+-email
+-website address
+-open hour
+-close hour
+-maximum nº of vaccines per hour
+}
+
+class CommunityMass{
+
+}
+
+class Healthcare{
+}
+
+class VacineType{
+-code
+-disease
+-commercial name
+-brand
+-type
+-techonoly used
+}
+
+class SNSUser{
+-name
+-date of birth
+-sex
+-postal address
+-phone number
+-email
+-nif
+-sns number
+}
+
+SNSUser"0...*" -left-- "1" Center:  registered in >
+Center "1" --- "0..*" HealthCare:  provides >
+Center "1" --- "0..*" CommunityMass:  provides >
+@enduml
