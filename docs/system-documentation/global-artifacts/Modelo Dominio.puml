@@ -1,6 +1,40 @@
 @startuml
 
+class worker{
+-Id
+-Name
+-Postal adress
+-Phone number
+-Email
+}
 
+class Nurse{
+}
+
+class Receptionist{
+}
+
+class User{
+-name
+-date
+-sex
+-address
+-phone number
+-email
+-citzen card number
+-sns user number
+}
+class Appointment{
+-sns number
+-date
+}
+
+class Dgsadmin{
+-id
+-name
+-email
+
+}
 class Center {
 -name
 -postal address
@@ -14,9 +48,6 @@ class Center {
 
 class CommunityMass{
 
-}
-
-class Healthcare{
 }
 
 class VacineType{
@@ -42,4 +73,14 @@ class SNSUser{
 SNSUser"0...*" -left-- "1" Center:  registered in >
 Center "1" --- "0..*" HealthCare:  provides >
 Center "1" --- "0..*" CommunityMass:  provides >
+worker "1" --- "0..*" Nurse: Can be >
+worker "1" --- "0..*" Receptionist: Can be >
+User "1" --- "0..*" SNSUser: Have >
+worker "1" --- "0..*" Center: Have <
+SNSUser "1" --- "0..*" Appointment: schedule >
+User "1" -left-- "0..*" VacineType: Select >
+Dgsadmin "1" --- "0..*" Center: Managing >
+Dgsadmin "1" --- "0..*" worker: Managing >
+
+
 @enduml
