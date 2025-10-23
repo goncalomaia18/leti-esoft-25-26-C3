@@ -14,16 +14,6 @@ class Nurse{
 class Receptionist{
 }
 
-class User{
--name
--date
--sex
--address
--phone number
--email
--citzen card number
--sns user number
-}
 class Appointment{
 -sns number
 -date
@@ -68,6 +58,7 @@ class SNSUser{
 -email
 -nif
 -sns number
+-citizen card number
 }
 SNSUser"0...*" -left-- "1" Center:  registered in >
 Center "1" --- "0..*" HealthCare:  provides >
