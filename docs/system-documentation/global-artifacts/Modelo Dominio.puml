@@ -65,10 +65,9 @@ Center "1" --- "0..*" HealthCare:  provides >
 Center "1" --- "0..*" CommunityMass:  provides >
 worker "1" --- "0..*" Nurse: Can be >
 worker "1" --- "0..*" Receptionist: Can be >
-User "1" --- "0..*" SNSUser: Have >
 worker "1" --- "0..*" Center: Have <
 SNSUser "1" --- "0..*" Appointment: schedule >
-User "1" -left-- "0..*" VacineType: Select >
+SNSUser "1" -left-- "0..*" VacineType: Select >
 Dgsadmin "1" --- "0..*" Center: Managing >
 Dgsadmin "1" --- "0..*" worker: Managing >
 
