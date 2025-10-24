@@ -27,8 +27,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="aafcfa35-12b5-4c5d-af28-085bf20496af" name="Changes" comment="Algumas altereações">
-      <change beforePath="$PROJECT_DIR$/.idea/PVMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/PVMS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/system-documentation/global-artifacts/Modelo Dominio.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/system-documentation/global-artifacts/puml/Modelo Dominio.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +50,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="maia" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -91,8 +91,9 @@
     "RunOnceActivity.west.config.association.type.startup.service": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "maia",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/gonca/Desktop/project-template/docs/system-documentation",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -101,6 +102,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gonca\Desktop\project-template\docs\system-documentation" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gonca\Desktop\project-template\docs\system-documentation\global-artifacts" />
+      <recent name="C:\Users\gonca\Desktop\project-template\docs\system-documentation\global-artifacts\puml" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -115,7 +125,17 @@
       <workItem from="1761214716996" duration="1454000" />
       <workItem from="1761216232944" duration="55000" />
       <workItem from="1761216364340" duration="756000" />
+      <workItem from="1761316118344" duration="2206000" />
     </task>
+    <task id="LOCAL-00001" summary="Algumas altereações">
+      <option name="closed" value="true" />
+      <created>1761316263353</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1761316263353</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,5 +163,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Algumas altereações" />
+    <option name="LAST_COMMIT_MESSAGE" value="Algumas altereações" />
   </component>
 </project>
