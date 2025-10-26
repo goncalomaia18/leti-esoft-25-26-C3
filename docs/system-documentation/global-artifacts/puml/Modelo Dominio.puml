@@ -1,11 +1,12 @@
 @startuml
+hide empty members
 
-class worker{
--Id
--Name
--Postal adress
--Phone number
--Email
+class Worker{
+-id
+-name
+-postal adress
+-phone number
+-email
 }
 
 class Nurse{
@@ -63,13 +64,13 @@ class SNSUser{
 SNSUser"0...*" -left-- "1" Center:  registered in >
 Center "1" --- "0..*" HealthCare:  provides >
 Center "1" --- "0..*" CommunityMass:  provides >
-worker "1" --- "0..*" Nurse: Can be >
-worker "1" --- "0..*" Receptionist: Can be >
-worker "1" --- "0..*" Center: Have <
+Worker "1" --- "0..*" Nurse: Can be >
+Worker "1" --- "0..*" Receptionist: Can be >
+Worker "1" --- "0..*" Center: Have <
 SNSUser "1" --- "0..*" Appointment: schedule >
 SNSUser "1" -left-- "0..*" VacineType: Select >
 Dgsadmin "1" --- "0..*" Center: Managing >
-Dgsadmin "1" --- "0..*" worker: Managing >
+Dgsadmin "1" --- "0..*" Worker: Managing >
 
 
 @enduml
