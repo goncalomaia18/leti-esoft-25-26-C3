@@ -28,7 +28,6 @@
   <component name="ChangeListManager">
     <list default="true" id="aafcfa35-12b5-4c5d-af28-085bf20496af" name="Changes" comment="Algumas altereações">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/system-documentation/global-artifacts/Modelo Dominio.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/system-documentation/global-artifacts/puml/Modelo Dominio.puml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +90,7 @@
     "RunOnceActivity.west.config.association.type.startup.service": "true",
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "maia",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/gonca/Desktop/project-template/docs/system-documentation",
     "node.js.detected.package.eslint": "true",
