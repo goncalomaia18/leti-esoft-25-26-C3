@@ -1,0 +1,76 @@
+@startuml
+hide empty members
+
+class Worker{
+-id
+-name
+-postal adress
+-phone number
+-email
+}
+
+class Nurse{
+}
+
+class Receptionist{
+}
+
+class Appointment{
+-sns number
+-date
+}
+
+class Dgsadmin{
+-id
+-name
+-email
+
+}
+class Center {
+-name
+-postal address
+-phone number
+-email
+-website address
+-open hour
+-close hour
+-maximum nº of vaccines per hour
+}
+
+class CommunityMass{
+
+}
+
+class VacineType{
+-code
+-disease
+-commercial name
+-brand
+-type
+-techonoly used
+}
+
+class SNSUser{
+-name
+-date of birth
+-sex
+-postal address
+-phone number
+-email
+-nif
+-sns number
+-citizen card number
+}
+SNSUser"0...*" -left-- "1" Center:  registered in >
+Center "1" --- "0..*" HealthCare:  provides >
+Center "1" --- "0..*" CommunityMass:  provides >
+Worker "1" --- "0..*" Nurse: Can be >
+Worker "1" --- "0..*" Receptionist: Can be >
+Worker "1" --- "0..*" Center: Have <
+SNSUser "1" --- "0..*" Appointment: schedule >
+SNSUser "1" -left-- "0..*" VacineType: Select >
+Dgsadmin "1" --- "0..*" Center: Managing >
+Dgsadmin "1" --- "0..*" Worker: Managing >
+
+
+@enduml

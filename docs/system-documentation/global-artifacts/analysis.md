@@ -10,9 +10,9 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Business Transactions**
 
-* Appointment (agendamento de vacinação)
+* Appointment 
 
-* VaccineAdministration (administração da vacina)
+* VaccineAdministration 
 
 ---
 
@@ -46,7 +46,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 * Nurse
 
-* DGSAdministrator
+* DGSAdmin
 
 ---
 
@@ -106,7 +106,7 @@ To identify domain conceptual classes, start by making a list of candidate conce
 
 **Other (External/Collaborating) Systems**
 
-* SNS Database (para validação de número SNS – opcional)
+* SNS Database
 
 ---
 
@@ -142,10 +142,18 @@ An association is a relationship between instances of objects that indicates a r
 * etc.
 
 
-| Concept (A) 		|  Association   	|  Concept (B) |
-|----------	   		|:-------------:		|------:       |
-| C1  	| verb1    		 	| C2  |
-| ...  	| ...    		 	| ...  |
+| Concept (A) 		 |    Association   	    |   Concept (B) |
+|----------------|:---------------------:|--------------:|
+| Dgsadmin 	     |   Managing    		 	    |        worker |
+| Dgsadmin  	    |   Managing    		 	    |        Center |
+| worker  	      |     Have    		 	      |        Center |
+| SNSUser 	      | registered in    		 	 |        Center |
+| SNSUser	       |     Select   		 	     |    VacineType |
+| SNSUser 	      |   schedule    		 	    |  Appointement |
+| Center  	      |   provides    		 	    | CommunityMass |
+| Center  	      |   provides    		 	    |    HealthCare |
+| worker  	      |     Can be  		 	      |         Nurse |
+| worker  	      |     Can be   		 	     |  Receptionist |
 
 
 
@@ -155,4 +163,4 @@ An association is a relationship between instances of objects that indicates a r
 
 **Place the Domain Model diagram below, using SVG format.**
 
-![Domain Model](svg/DM.svg)
+![Domain Model](svg/Modelo Dominio.svg)

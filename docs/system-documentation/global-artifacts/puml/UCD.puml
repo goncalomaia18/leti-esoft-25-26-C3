@@ -1,0 +1,73 @@
+@startuml UCD
+
+!pragma layout smetana
+
+left to right direction
+skinparam packageStyle rectangle
+skinparam actorStyle awesome
+skinparam shadowing false
+
+skinparam usecase {
+  BackgroundColor #FEFECE
+  BorderColor #A80036
+}
+
+skinparam actor {
+  BorderColor #A80036
+  FontColor black
+}
+
+actor "SNS User" as sns
+actor "Receptionist" as rec
+
+rectangle "Vaccination Management System" {
+  usecase UC01 as "UC01 Register"
+  usecase UC02 as "UC02 Schedule vaccination"
+  usecase UC03 as "UC03 View an appointment"
+  usecase UC04 as "UC04 Cancel an appointment"
+  usecase UC05 as "UC05 Obtain vaccination certificate"
+  usecase UC06 as "UC06 Receive notifications"
+  usecase UC07 as "UC07 Assist with appointment scheduling"
+  usecase UC08 as "UC08 Register user arrival"
+  usecase UC09 as "UC09 Verify appointment & SNS number"
+  usecase UC10 as "UC10 Mark user as ready"
+  usecase UC11 as "UC11 View list of users ready for vaccination"
+  usecase UC12 as "UC12 Access user health information"
+  usecase UC13 as "UC13 Administer vaccine"
+  usecase UC14 as "UC14 Record vaccination details (type, brand, lot)"
+  usecase UC15 as "UC15 Record adverse reactions"
+  usecase UC16 as "UC16 Issue vaccination certificate"
+  usecase UC17 as "UC17 Register vaccination centers"
+  usecase UC18 as "UC18 Register personnel (Nurses, Receptionists)"
+  usecase UC19 as "UC19 Configure vaccine types and brands"
+  usecase UC20 as "UC20 Manage system data (update, deactivate, etc.)"
+}
+
+actor "Nurse" as nurse
+actor "DGS Administrator" as admin
+
+sns --> UC01
+sns --> UC02
+sns --> UC03
+sns --> UC04
+sns --> UC05
+sns --> UC06
+
+rec --> UC07
+rec --> UC08
+rec --> UC09
+rec --> UC10
+
+UC11 <-- nurse
+UC12 <-- nurse
+UC13 <-- nurse
+UC14 <-- nurse
+UC15 <-- nurse
+UC16 <-- nurse
+
+UC17 <-- admin
+UC18 <-- admin
+UC19 <-- admin
+UC20 <-- admin
+
+@enduml
