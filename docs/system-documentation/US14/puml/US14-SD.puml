@@ -1,23 +1,34 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-title Example of a Sequence Diagram
+title Sequence Diagram - US14: Register Employee
 
 autoactivate on
 autonumber
 
-actor "User" as User
-participant ":xxxxView" as System
-participant ":xxxxController" as Ctrl
-participant ":Class1" as C1
+actor "Administrator" as Admin
+participant ":RegisterEmployeeView" as view
+participant ":RegisterEmployeeController" as Ctrl
+participant ":EmployeeService" as Srv
+participant ":EmployeeRepository" as Repo
 
-activate User
+activate Admin
+Admin -> view : Submete dados do novo empregado
+view -> Ctrl : registerEmployee(data)
 
-User -> System: Authentication request
-System -> Ctrl: authenticate(userId, pwd)
-Ctrl -> C1: doLogIn(userId, pwd)
-C1 --> Ctrl: userToken
-Ctrl --> System: ok
-System --> User: Authentication response
+Ctrl -> Srv : registerEmployee(data)
+' AC14-4: Verifica unicidade
+Srv -> Repo : findByEmail(email)
+Repo --> Srv : (null)
+Srv -> Repo : findByPhoneNumber(phone)
+Repo --> Srv : (null)
+
+' Cria e guarda a nova entidade
+Srv -> Repo : save(newEmployee)
+Repo --> Srv : savedEmployee
+
+Srv --> Ctrl : employeeDTO
+Ctrl --> view : operationSuccess()
+view --> Admin : Exibe mensagem de sucesso
 
 @enduml
