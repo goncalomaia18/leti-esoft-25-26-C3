@@ -4,32 +4,50 @@
 hide circle
 skinparam classAttributeIconSize 0
 
-title Example of a Class Diagram
+title Class Diagram - US14: Register Employee
 
-class xxxxView {
-
+class RegisterEmployeeView {
+' O UI interage com o utilizador
 }
 
-class xxxxController {
-    +authenticate(string userId, string pwd): bool
+class RegisterEmployeeController {
+    ' Recebe pedidos do UI
+    +registerEmployee(data: EmployeeDTO): EmployeeDTO
 }
 
-class Class1 {
-    -designation
-    +doLogin(string userId, string pwd): UserToken
+class EmployeeService {
+    ' Contém a lógica de negócio
+    +registerEmployee(data: EmployeeDTO): Employee
 }
 
-class Class2 {
-    -id
-    -name
-    -address
-    -password
+interface EmployeeRepository {
+    ' Interface para persistência
+    +save(employee: Employee): Employee
+    +findByEmail(email: String): Employee
+    +findByPhoneNumber(phone: String): Employee
 }
 
-xxxxView ..> xxxxController
+class Employee {
+    ' Entidade de domínio
+    -name: String
+    -phoneNumber: String
+    -emailAddress: String
+    -citizenCardNumber: String
+}
 
-xxxxController ..> Class1
+class Role {
+    ' Entidade de domínio
+    -description: String
+}
 
-Class1 "1" -> "0..*" Class2: knows
+' Dependências entre camadas
+RegisterEmployeeView ..> RegisterEmployeeController
+RegisterEmployeeController ..> EmployeeService
+EmployeeService ..> EmployeeRepository
+
+' Relações de domínio
+EmployeeService ..> Employee : "creates"
+EmployeeRepository "1" -- "0..*" Employee : "manages"
+Employee "1" --> "1" Role : "is assigned"
 
 @enduml

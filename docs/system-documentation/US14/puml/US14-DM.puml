@@ -4,19 +4,23 @@ hide circle
 skinparam classAttributeIconSize 0
 hide methods
 
-title Example of a Domain Model excerpt
+title Domain Model Excerpt - US14
 
-class Concept1 {
-    -designation
+class Employee {
+    ' AC14-2: Atributos obrigatórios
+    -name: String
+    -phoneNumber: String
+    -emailAddress: String
+    ' AC14-3: Formato PT
+    -citizenCardNumber: String
 }
 
-class Concept2 {
-    -id
-    -name
-    -address
-    -password
+class Role {
+    ' AC14-1: Função/role
+    -description: String
 }
 
-Concept1 "1" -> "0..*" Concept2: knows
+' AC14-1: Cada empregado tem uma única função
+Employee "1" --> "1" Role : "is assigned to"
 
 @enduml
