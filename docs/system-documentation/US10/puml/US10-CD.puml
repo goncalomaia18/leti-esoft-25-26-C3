@@ -4,32 +4,38 @@
 hide circle
 skinparam classAttributeIconSize 0
 
-title Example of a Class Diagram
+title US10 - Specify a New Vaccine Type - Class Diagram
 
-class xxxxView {
-
+class NewVaccineTypeView  {
 }
 
-class xxxxController {
-    +authenticate(string userId, string pwd): bool
+class NewVaccineTypeController{
+    +NewVaccineTypeController()
 }
 
-class Class1 {
+class Company{
     -designation
-    +doLogin(string userId, string pwd): UserToken
+    +getVaccineTypeContainer(): VaccineTypeContainer
 }
 
-class Class2 {
-    -id
-    -name
-    -address
-    -password
+class VaccineTypeContainer{
+    +create(code, disease, description): VaccineType
+    +save(VaccineType): Result
 }
 
-xxxxView ..> xxxxController
+class VaccineType{
+    -code: String
+    -disease: String
+    -description: String
+}
 
-xxxxController ..> Class1
+NewVaccineTypeView ..> NewVaccineTypeController
 
-Class1 "1" -> "0..*" Class2: knows
+NewVaccineTypeController ..> Company : company
+NewVaccineTypeController ..> VaccineTypeContainer : vaccineTypeContainer
+
+Company "1" --> "1" VaccineTypeContainer
+
+VaccineTypeContainer "1" --> "0..*" VaccineType : vaccineTypes
 
 @enduml
