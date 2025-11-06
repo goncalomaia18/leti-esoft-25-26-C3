@@ -31,6 +31,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/editor.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/system-documentation/global-artifacts/puml/Modelo Dominio.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/system-documentation/global-artifacts/puml/Modelo Dominio.puml" afterDir="false" />
+    <list default="true" id="05a98dec-707e-481c-b9c8-710b7d273448" name="Changes" comment="US14">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/system-documentation/US14/US14.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/system-documentation/US14/US14.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +99,7 @@
     "git-widget-placeholder": "Benedita-branch",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/gonca/leti-esoft-25-26-C3/docs/system-documentation/US15/puml",
+    "last_opened_file_path": "C:/Users/gonca/leti-esoft-25-26-C3/docs/system-documentation/US14/svg",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -109,6 +113,8 @@
       <recent name="C:\Users\gonca\Desktop\project-template\docs\system-documentation" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gonca\leti-esoft-25-26-C3\docs\system-documentation\US14\svg" />
+      <recent name="C:\Users\gonca\leti-esoft-25-26-C3\docs\system-documentation\US14" />
       <recent name="C:\Users\gonca\Desktop\project-template\docs\system-documentation\global-artifacts\svg" />
       <recent name="C:\Users\gonca\Desktop\project-template\docs\system-documentation\global-artifacts" />
       <recent name="C:\Users\gonca\Desktop\project-template\docs\system-documentation\global-artifacts\puml" />
@@ -131,6 +137,9 @@
       <workItem from="1761316118344" duration="2206000" />
       <workItem from="1761482035267" duration="1159000" />
       <workItem from="1761825660298" duration="309000" />
+      <workItem from="1761825660298" duration="1388000" />
+      <workItem from="1762265538186" duration="2433000" />
+      <workItem from="1762428501303" duration="1715000" />
     </task>
     <task id="LOCAL-00001" summary="Algumas altereações">
       <option name="closed" value="true" />
@@ -188,6 +197,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Algumas altereações" />
     <MESSAGE value="inicio sprint2" />
-    <option name="LAST_COMMIT_MESSAGE" value="inicio sprint2" />
+    <MESSAGE value="US14" />
+    <option name="LAST_COMMIT_MESSAGE" value="US14" />
   </component>
 </project>
