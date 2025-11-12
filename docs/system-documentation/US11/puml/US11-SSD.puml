@@ -1,19 +1,27 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-title Example of a System Sequence Diagram
+title US11 - System Sequence Diagram: Register Vaccine
 
 autoactivate on
 autonumber
 
-actor "User" as User
+actor "Administrator" as Admin
 participant ":System" as System
 
-activate User
+activate Admin
 
-User -> System: Authentication request
-System --> User: Authentication response
+Admin -> System: Requests to create a new vaccine
+System --> Admin: Requests details for Vaccine and Protocol
 
-User -> System: Another authentication request
-User <-- System: Another authentication response
+Admin -> System: Enters details:\n- Name, Brand, Type Code\n- Technology Used (AC11-1)\n- Protocol (Nº Doses, Idades)
+
+
+
+Admin <-- System: Verifies provided data (e.g., confirms the selected Technology)
+
+Admin -> System: Confirms new vaccine registration
+System --> Admin: Informs success of the operation + Vaccine ID
+
+deactivate Admin
 @enduml

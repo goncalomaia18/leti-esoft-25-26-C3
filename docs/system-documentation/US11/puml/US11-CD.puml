@@ -4,32 +4,85 @@
 hide circle
 skinparam classAttributeIconSize 0
 
-title Example of a Class Diagram
+title Class Diagram - US11: Registar uma Vacina
 
-class xxxxView {
-
+class RegisterVaccineView {
+    + displayRegistrationForm()
 }
 
-class xxxxController {
-    +authenticate(string userId, string pwd): bool
+
+class RegisterVaccineController {
+    + registerVaccine(data: VaccineDTO): VaccineDTO
 }
 
-class Class1 {
-    -designation
-    +doLogin(string userId, string pwd): UserToken
+
+class VaccineService {
+    + registerVaccine(data: VaccineDTO): Vaccine
+    + getAvailableTechnologies(): List<TechnologyType>
 }
 
-class Class2 {
-    -id
-    -name
-    -address
-    -password
+
+interface VaccineRepository {
+    + save(vaccine: Vaccine): Vaccine
+    + findByCommercialName(name: String): Vaccine
 }
 
-xxxxView ..> xxxxController
+interface AdministrationProtocolRepository {
+    + save(protocol: AdministrationProtocol): AdministrationProtocol
+}
 
-xxxxController ..> Class1
 
-Class1 "1" -> "0..*" Class2: knows
+
+class Vaccine {
+
+    - commercialName: String
+    - brand: String
+    --
+    + getBrand(): String
+    + getType(): VaccineType
+}
+
+class VaccineType {
+
+    - code: String
+    - disease: String
+    - description: String
+    --
+    + getCode(): String
+}
+
+class AdministrationProtocol {
+
+    - numberOfDoses: Integer
+    - dosesIntervalInDays: Integer
+    - minimumAge: Integer
+    - maximumAge: Integer
+}
+
+class TechnologyType {
+
+    - name: String
+    - description: String
+    --
+    + getName(): String
+}
+
+
+RegisterVaccineView ..> RegisterVaccineController
+RegisterVaccineController ..> VaccineService
+VaccineService ..> VaccineRepository
+VaccineService ..> AdministrationProtocolRepository
+
+
+
+Vaccine "1..*" --> "1" VaccineType : "is of type"
+Vaccine "1" --> "1" AdministrationProtocol : "has protocol"
+
+
+Vaccine "1" --> "1" TechnologyType : "uses technology"
+
+
+VaccineRepository "1" -- "0..*" Vaccine : "manages"
+AdministrationProtocolRepository "1" -- "0..*" AdministrationProtocol : "manages"
 
 @enduml

@@ -1,22 +1,36 @@
 @startuml
 'https://plantuml.com/class-diagram
+
 hide circle
 skinparam classAttributeIconSize 0
 hide methods
 
-title Example of a Domain Model excerpt
+title Modelo de Domínio - US11: Registar Vacina
 
-class Concept1 {
-    -designation
+class Vaccine {
+
+    - commercialName: String
+    - brand: String
+    - technology used: String
 }
 
-class Concept2 {
-    -id
-    -name
-    -address
-    -password
+class VaccineType {
+
+    - code: String
+    - disease: String
+    - description: String
 }
 
-Concept1 "1" -> "0..*" Concept2: knows
+class AdministrationProtocol {
+
+    - numberOfDoses: Integer
+    - minimumAge: Integer
+    - maximumAge: Integer
+}
+
+
+Vaccine "1" --> "1" AdministrationProtocol : "has protocol"
+
+Vaccine "1..*" --> "1" VaccineType : "is of type"
 
 @enduml

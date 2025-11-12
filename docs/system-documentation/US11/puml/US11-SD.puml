@@ -1,23 +1,73 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-title Example of a Sequence Diagram
-
+title US11 - Sequence Diagram
 autoactivate on
 autonumber
 
-actor "User" as User
-participant ":xxxxView" as System
-participant ":xxxxController" as Ctrl
-participant ":Class1" as C1
+actor "Administrator" as Admin
+participant ":RegisterVaccineView" as View
+participant ":RegisterVaccineController" as Ctrl
+participant ":AdministratorController" as AdminC
+participant "VaccineContainer:Repository" as VaccContainer
+participant "TechContainer:TechnologyRepo" as TechContainer
+participant ":Vaccine" as Vaccine
+participant ":AdministrationProtocol" as AdminPro
+participant ":VaccineType" as Type
 
-activate User
+activate Admin
 
-User -> System: Authentication request
-System -> Ctrl: authenticate(userId, pwd)
-Ctrl -> C1: doLogIn(userId, pwd)
-C1 --> Ctrl: userToken
-Ctrl --> System: ok
-System --> User: Authentication response
+Admin -> View: Request to create a new vaccine (w/ Protocol data)
+View --> Admin: requests data (name, brand, technology, protocol data, etc.)
 
+Admin -> View: types requested data
+View -> Ctrl: createVaccine(req: CreateVaccineRequest)
+
+
+Ctrl -> AdminC: getVaccineContainer()
+AdminC --> Ctrl: VaccContainer
+
+Ctrl -> AdminC: getTechnologyContainer()
+AdminC --> Ctrl: TechContainer
+Ctrl -> TechContainer: findByName(req.technologyUsed)
+TechContainer --> Ctrl: technologyEntity?
+alt Technology Inválida (AC11-1)
+    Ctrl -> View: Exibe erro "Tecnologia não predefinida"
+    deactivate Ctrl
+    deactivate Admin
+    return
+end
+
+
+Ctrl -> VaccContainer: findByCommercialName(req.name)
+VaccContainer --> Ctrl: existingVaccine? (null)
+alt Nome Comercial Já Existe
+    Ctrl -> View: Exibe erro "Vacina já existe"
+    deactivate Ctrl
+    deactivate Admin
+    return
+end
+
+Ctrl -> AdminPro: create(req.protocolData)
+
+
+
+Ctrl -> Vaccine: create(req.vaccineData)
+Ctrl -> Vaccine: setAdministrationProtocol(AdminPro)
+Ctrl -> Vaccine: setTechnology(req.technologyUsed) ' Mantendo como atributo String
+Ctrl -> Vaccine: setBrand(req.manufacturer)
+Ctrl -> Vaccine: setTypeOfVaccine(req.typeCode)
+
+
+Ctrl -> VaccContainer: save(Vaccine)
+VaccContainer -> VaccContainer: add(Vaccine)
+deactivate VaccContainer
+VaccContainer --> Ctrl: savedVaccine.id
+
+
+Ctrl --> View: result (Success)
+
+View --> Admin: informs operation success + vaccineId
+
+deactivate Admin
 @enduml

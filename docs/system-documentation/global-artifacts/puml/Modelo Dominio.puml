@@ -36,6 +36,21 @@ class HealthCare {
 class CommunityMass {
 }
 
+class Administration {
+-lot number
+-adverse reactions
+-administration date
+}
+
+class AdministrationProtocol {
+-number doses
+-minimumAge
+-maximumAge
+}
+
+class Stock {
+-quantity
+}
 
 class Dgsadmin {
     -id
@@ -52,9 +67,7 @@ class VaccineType {
 class Vaccine {
     -commercial name
     -brand
-    -type
     -technology used
-    -lot number
 }
 
 class Appointment {
@@ -81,17 +94,22 @@ Employee <|-- Receptionist
 Center <|-- HealthCare
 Center <|-- CommunityMass
 
-' Relações de Composição
-VaccineType *-- "1..*" Vaccine : has >
 
-' Relações de Associação
+
 Dgsadmin "1" -- "0..*" Employee : manages >
 Dgsadmin "1" -- "0..*" Center : manages >
 Employee "0..*" -- "0..*" Center : works at >
-Center "0..*" -- "1..*" VaccineType : provides >
 SNSUser "1" -- "0..*" Appointment : schedules >
 Appointment "0..*" -- "1" Center : scheduled at >
 Appointment "0..*" -- "1" VaccineType : for >
-Nurse "1" -- "0..*" Vaccine : administers >
+HealthCare "1" -- "0..*" VaccineType : provides >
+CommunityMass "1" -- "1" VaccineType : provides >
+VaccineType "1" -- "0..*" Vaccine : has >
+Vaccine "1" -- "1" AdministrationProtocol : uses >
+Center "1" -- "0..*" Stock : holds >
+Stock "0..*" -- "1" Vaccine : of >
+Nurse "1" -- "0..*" Administration : performs >
+Appointment "1" -- "0..1" Administration : results in >
+Administration "0..*" -- "1" Vaccine : used >
 
 @enduml
