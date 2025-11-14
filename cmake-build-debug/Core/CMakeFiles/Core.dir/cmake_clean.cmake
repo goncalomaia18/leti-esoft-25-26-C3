@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Core.dir/sources/Employee.cpp.obj"
+  "CMakeFiles/Core.dir/sources/Employee.cpp.obj.d"
+  "CMakeFiles/Core.dir/sources/EmployeeRegistry.cpp.obj"
+  "CMakeFiles/Core.dir/sources/EmployeeRegistry.cpp.obj.d"
   "CMakeFiles/Core.dir/sources/domain/shared/Result.cpp.obj"
   "CMakeFiles/Core.dir/sources/domain/shared/Result.cpp.obj.d"
   "CMakeFiles/Core.dir/sources/domain/shared/StringUtils.cpp.obj"
