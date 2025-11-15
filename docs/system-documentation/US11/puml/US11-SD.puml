@@ -1,73 +1,64 @@
 @startuml
 'https://plantuml.com/sequence-diagram
 
-title US11 - Sequence Diagram
+
 autoactivate on
 autonumber
 
 actor "Administrator" as Admin
 participant ":RegisterVaccineView" as View
 participant ":RegisterVaccineController" as Ctrl
-participant ":AdministratorController" as AdminC
-participant "VaccineContainer:Repository" as VaccContainer
-participant "TechContainer:TechnologyRepo" as TechContainer
-participant ":Vaccine" as Vaccine
-participant ":AdministrationProtocol" as AdminPro
-participant ":VaccineType" as Type
+participant ":App" as AdminC
+participant "Container:VaccineContainer" as VaccContainer
+participant "Vac:Vaccine" as Vaccine
+
 
 activate Admin
 
-Admin -> View: Request to create a new vaccine (w/ Protocol data)
-View --> Admin: requests data (name, brand, technology, protocol data, etc.)
-
-Admin -> View: types requested data
-View -> Ctrl: createVaccine(req: CreateVaccineRequest)
-
-
+Admin -> View: Request to create a new vaccine
+View -> Ctrl: createVaccine()
 Ctrl -> AdminC: getVaccineContainer()
 AdminC --> Ctrl: VaccContainer
 
-Ctrl -> AdminC: getTechnologyContainer()
-AdminC --> Ctrl: TechContainer
-Ctrl -> TechContainer: findByName(req.technologyUsed)
-TechContainer --> Ctrl: technologyEntity?
-alt Technology Inválida (AC11-1)
-    Ctrl -> View: Exibe erro "Tecnologia não predefinida"
-    deactivate Ctrl
-    deactivate Admin
-    return
-end
+Ctrl -> VaccContainer: create()
+VaccContainer -> Vaccine**: create()
+VaccContainer --> Ctrl: Vac
+Ctrl --> View: ok
+View --> Admin: Request details for vaccine
+
+Admin -> View: types requested data
+View -> Ctrl: set(commercial name,brand, technology used)
+Ctrl -> Vaccine: setCN(commercial name)
+Vaccine --> Ctrl: ok
+Ctrl -> Vaccine: setB(brand)
+Vaccine --> Ctrl: ok
+Ctrl -> Vaccine: setTU(techonology used)
+Vaccine --> Ctrl: ok
+
+Ctrl -> VaccContainer: validate(Vac)
+VaccContainer -> Vaccine: isValid()
+Vaccine --> VaccContainer: ok
+VaccContainer -> VaccContainer: checkduplicate(Vac)
+VaccContainer --> VaccContainer: ok
+VaccContainer --> Ctrl: ok
+Ctrl --> View: ok
+View-->Admin:Verifies provided data
 
 
-Ctrl -> VaccContainer: findByCommercialName(req.name)
-VaccContainer --> Ctrl: existingVaccine? (null)
-alt Nome Comercial Já Existe
-    Ctrl -> View: Exibe erro "Vacina já existe"
-    deactivate Ctrl
-    deactivate Admin
-    return
-end
-
-Ctrl -> AdminPro: create(req.protocolData)
-
-
-
-Ctrl -> Vaccine: create(req.vaccineData)
-Ctrl -> Vaccine: setAdministrationProtocol(AdminPro)
-Ctrl -> Vaccine: setTechnology(req.technologyUsed) ' Mantendo como atributo String
-Ctrl -> Vaccine: setBrand(req.manufacturer)
-Ctrl -> Vaccine: setTypeOfVaccine(req.typeCode)
+Admin ->View:Confirms new vaccine registration
+View->Ctrl: saveCreateVaccine()
+Ctrl -> VaccContainer: save(Vac)
+VaccContainer->VaccContainer: validate(Vac)
+VaccContainer-->VaccContainer:ok
+VaccContainer->VaccContainer: add(Vac)
+VaccContainer-->VaccContainer:ok
+VaccContainer-->Ctrl: ok
+Ctrl-->View: ok
+View-->Admin:Informs success of the operation
 
 
-Ctrl -> VaccContainer: save(Vaccine)
-VaccContainer -> VaccContainer: add(Vaccine)
-deactivate VaccContainer
-VaccContainer --> Ctrl: savedVaccine.id
 
 
-Ctrl --> View: result (Success)
 
-View --> Admin: informs operation success + vaccineId
 
-deactivate Admin
 @enduml

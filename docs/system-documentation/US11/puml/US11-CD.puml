@@ -1,88 +1,48 @@
 @startuml
-'https://plantuml.com/class-diagram
+'https://plantuml.com/sequence-diagram
 
 hide circle
 skinparam classAttributeIconSize 0
 
-title Class Diagram - US11: Registar uma Vacina
-
 class RegisterVaccineView {
-    + displayRegistrationForm()
 }
 
-
-class RegisterVaccineController {
-    + registerVaccine(data: VaccineDTO): VaccineDTO
+class RegisterVaccineController{
++createvaccine():void
++set(commercial name,brand, technology used): void
++ saveCreateVaccine():Result
 }
 
-
-class VaccineService {
-    + registerVaccine(data: VaccineDTO): Vaccine
-    + getAvailableTechnologies(): List<TechnologyType>
+class App{
++getVaccineContainer(): Vaccinecontainer
 }
 
-
-interface VaccineRepository {
-    + save(vaccine: Vaccine): Vaccine
-    + findByCommercialName(name: String): Vaccine
+class VaccineContainer{
++create():Vaccine
++validate(Vac:Vaccine):boolean
++checkduplicate(Vac:Vaccine):boolean
++save(Vac:Vaccine):Result
 }
 
-interface AdministrationProtocolRepository {
-    + save(protocol: AdministrationProtocol): AdministrationProtocol
+class Vaccine{
+-commercial name
+-brand
+-technology used
++setCN(commercial name)
++setB(brand)
++setTU(techonology used)
++isValid():boolean
 }
 
-
-
-class Vaccine {
-
-    - commercialName: String
-    - brand: String
-    --
-    + getBrand(): String
-    + getType(): VaccineType
-}
-
-class VaccineType {
-
-    - code: String
-    - disease: String
-    - description: String
-    --
-    + getCode(): String
-}
-
-class AdministrationProtocol {
-
-    - numberOfDoses: Integer
-    - dosesIntervalInDays: Integer
-    - minimumAge: Integer
-    - maximumAge: Integer
-}
-
-class TechnologyType {
-
-    - name: String
-    - description: String
-    --
-    + getName(): String
-}
+App "1" -right-> "1" VaccineContainer: maintains
+VaccineContainer "1" -down-> "0..*" Vaccine: records
 
 
 RegisterVaccineView ..> RegisterVaccineController
-RegisterVaccineController ..> VaccineService
-VaccineService ..> VaccineRepository
-VaccineService ..> AdministrationProtocolRepository
+RegisterVaccineController ..> App
+RegisterVaccineController ..> VaccineContainer
+RegisterVaccineController ..> Vaccine
 
 
-
-Vaccine "1..*" --> "1" VaccineType : "is of type"
-Vaccine "1" --> "1" AdministrationProtocol : "has protocol"
-
-
-Vaccine "1" --> "1" TechnologyType : "uses technology"
-
-
-VaccineRepository "1" -- "0..*" Vaccine : "manages"
-AdministrationProtocolRepository "1" -- "0..*" AdministrationProtocol : "manages"
 
 @enduml

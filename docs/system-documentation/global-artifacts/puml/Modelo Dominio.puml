@@ -42,15 +42,6 @@ class Administration {
 -administration date
 }
 
-class AdministrationProtocol {
--number doses
--minimumAge
--maximumAge
-}
-
-class Stock {
--quantity
-}
 
 class Dgsadmin {
     -id
@@ -100,16 +91,15 @@ Dgsadmin "1" -- "0..*" Employee : manages >
 Dgsadmin "1" -- "0..*" Center : manages >
 Employee "0..*" -- "0..*" Center : works at >
 SNSUser "1" -- "0..*" Appointment : schedules >
+SNSUser "1" -- "1" Administration : has >
 Appointment "0..*" -- "1" Center : scheduled at >
 Appointment "0..*" -- "1" VaccineType : for >
 HealthCare "1" -- "0..*" VaccineType : provides >
 CommunityMass "1" -- "1" VaccineType : provides >
 VaccineType "1" -- "0..*" Vaccine : has >
-Vaccine "1" -- "1" AdministrationProtocol : uses >
 Center "1" -- "0..*" Stock : holds >
-Stock "0..*" -- "1" Vaccine : of >
 Nurse "1" -- "0..*" Administration : performs >
-Appointment "1" -- "0..1" Administration : results in >
 Administration "0..*" -- "1" Vaccine : used >
+Dgsadmin "1" -- "1..*" VaccineType : configures >
 
 @enduml
